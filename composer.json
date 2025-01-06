@@ -27,7 +27,10 @@
         "phpexperts/console-painter": "^1.1",
         "phpexperts/laravel-env-polyfill": "^1.7",
         "phpexperts/rest-speaker": "^2.7",
-        "phpexperts/simple-dto": "^3.7"
+        "phpexperts/simple-dto": "^3.7",
+        "illuminate/database": "^11.37",
+        "illuminate/events": "^11.37",
+        "illuminate/filesystem": "^11.37"
     },
     "require-dev": {
         "phpunit/phpunit": "*",
@@ -39,11 +42,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PHPExperts\\workdir\\" : "src/"
+            "PHPExperts\\MiniApiBase\\" : ".framework/",
+            "PHPExperts\\workdir\\": "src/"
         }
     },
     "autoload-dev": {
-        "psr-4": { "PHPExperts\\workdir\\Tests\\" : "tests/" }
+        "psr-4": { "PHPExperts\\MiniApiBase\\Tests\\" : "tests/" }
     },
     "config": {
         "classmap-authoritative": true,
