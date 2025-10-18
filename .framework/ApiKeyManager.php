@@ -2,7 +2,7 @@
 
 namespace PHPExperts\MiniApiBase;
 
-use http\Exception\RuntimeException;
+use \RuntimeException;
 use Illuminate\Support\Facades\DB;
 
 class ApiKeyManager
@@ -48,5 +48,24 @@ class ApiKeyManager
         DB::table('api_keys')
             ->where('apikey', $apikey)
             ->update(['is_active' => false]);
+    }
+
+    public function isValid(string $apikey)
+    {
+        static $knownKeys = [];
+        if (array_key_exists($apikey, $knownKeys)) {
+            return true;
+        }
+
+        $exists = DB::table('api_keys')
+            ->where(['apikey' => $apikey, 'is_active' => true])
+            ->exists();
+        if (!$exists) {
+            return false;
+        }
+
+        $knownKeys[] = $apikey;
+
+        return true;
     }
 }
