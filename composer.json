@@ -66,11 +66,6 @@
             "src/helpers.php"
         ]
     },
-    "config": {
-        "allow-plugins": {
-            "0.0.0/composer-include-files": true
-        }
-    },
     "repositories": [
         { "type": "git", "url": "https://github.com/PHPExperts-Contribs/minicli.git" }
     ]
